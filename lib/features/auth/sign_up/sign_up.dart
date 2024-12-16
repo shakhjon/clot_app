@@ -1,9 +1,9 @@
-
-import 'package:flutter/material.dart';
 import 'package:my_project/core/constants/color.dart';
-import 'package:my_project/core/route/rout_names.dart';
 import 'package:my_project/features/auth/widgets/custom_button.dart';
 import 'package:my_project/features/auth/widgets/log_in_forms.dart';
+import 'package:flutter/material.dart';
+import '../../../core/route/rout_names.dart';
+import '../widgets/arrow.dart';
 
 class CreateAccount extends StatelessWidget {
   const CreateAccount({super.key});
@@ -22,18 +22,15 @@ class CreateAccount extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 100,),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white10,
-                ),
+              const SizedBox(height: 200),
+              Arrow(
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
                     RouteNames.signInEmail,
                   );
                 },
-                child: const Icon(Icons.arrow_back,color: Colors.white,),
+                imgURL: "assets/icons/back_arrow.png",
               ),
               const SizedBox(
                 height: 20,
@@ -56,16 +53,20 @@ class CreateAccount extends StatelessWidget {
                   children: [
                     LogInForms(
                       text: "First Name",
-                      hideText: false,),
+                      hideText: false,
+                    ),
                     LogInForms(
                       text: "Last Name",
-                      hideText: false,),
+                      hideText: false,
+                    ),
                     LogInForms(
                       text: "Email Address",
-                      hideText: false,),
+                      hideText: false,
+                    ),
                     LogInForms(
                       text: "Password",
-                      hideText: true,),
+                      hideText: true,
+                    ),
                   ],
                 ),
               ),
@@ -83,23 +84,23 @@ class CreateAccount extends StatelessWidget {
               Row(
                 children: [
                   const Text(
-                    "Forgot Password ?",
+                    "You hava a account ?",
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, "/resetPage");
+                      Navigator.pushNamed(context, RouteNames.signInEmail);
                     },
                     style: TextButton.styleFrom(
                       foregroundColor: Colors.white, // Sets the text color
                       textStyle: const TextStyle(
                         fontSize: 16, // Example for font size (optional)
                         fontWeight:
-                        FontWeight.bold, // Example for bold text (optional)
+                            FontWeight.bold, // Example for bold text (optional)
                       ),
                     ),
                     child: const Text(
-                      "Reset",
+                      "I already have",
                     ),
                   )
                 ],

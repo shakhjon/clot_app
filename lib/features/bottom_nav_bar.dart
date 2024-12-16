@@ -1,6 +1,11 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: non_constant_identifier_names
 
-import 'home_page.dart';
+import 'package:my_project/core/constants/color.dart';
+import 'package:my_project/features/notification/notification_page.dart';
+import 'package:my_project/features/order/order_page.dart';
+import 'package:my_project/features/profile/profile_page.dart';
+import 'package:flutter/material.dart';
+import 'home/home_page.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -12,23 +17,23 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int _currentIndex = 0;
 
-  List<Widget> body = const [
-    HomePage(),
-    HomePage(),
-    HomePage(),
-    HomePage(),
+  List<Widget> pages = [
+    const HomePage(),
+    const NotificationPage(),
+    const OrderPage(),
+    const ProfilePage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black45,
+      backgroundColor: CustomColor.mainColor,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: body[_currentIndex],
+        child: pages[_currentIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.deepPurpleAccent,
+        selectedItemColor: CustomColor.buttonColor,
         currentIndex: _currentIndex,
         selectedLabelStyle: const TextStyle(
           fontWeight: FontWeight.bold,
@@ -49,7 +54,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             "assets/images/notification.png",
           ),
           BottomNavigationBarItemWidget(
-            " Mark",
+            " Orders",
             "assets/images/mark.png",
           ),
           BottomNavigationBarItemWidget(
@@ -62,12 +67,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }
 }
 
-BottomNavigationBarItemWidget(String label, String text) {
+BottomNavigationBarItem BottomNavigationBarItemWidget(
+    String label, String imageUrl) {
   return BottomNavigationBarItem(
-    backgroundColor: Colors.black,
+    backgroundColor: CustomColor.mainColor,
     label: label,
     icon: ImageIcon(
-      AssetImage(text),
+      AssetImage(imageUrl),
       size: 45,
     ),
   );

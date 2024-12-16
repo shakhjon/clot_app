@@ -1,13 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:my_project/core/constants/color.dart';
-
+import 'package:flutter/material.dart';
 class SendEmail extends StatelessWidget {
   const SendEmail({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black45,
+      backgroundColor:CustomColor.mainColor,
       body: Padding(
         padding: const EdgeInsets.all(22.0),
         child: Center(
@@ -23,7 +22,7 @@ class SendEmail extends StatelessWidget {
                   height: 30,
                 ),
                 const Text(
-                  "We Sent You An Email To Reset \nYour Password.",
+                  "We Sent you an Email to reset \nyour password.",
                   style: TextStyle(color: Colors.white, fontSize: 30),
                   textAlign: TextAlign.center,
                 ),
@@ -34,7 +33,7 @@ class SendEmail extends StatelessWidget {
                   width: 159,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:  CustomColor.buttonColor,
+                      backgroundColor: CustomColor.buttonColor,
                       minimumSize: const Size(double.infinity, 50),
                     ),
                     onPressed: () {

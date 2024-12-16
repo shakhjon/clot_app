@@ -1,3 +1,4 @@
+import 'package:my_project/core/constants/color.dart';
 import 'package:flutter/material.dart';
 
 class LogInForms extends StatelessWidget {
@@ -16,17 +17,16 @@ class LogInForms extends StatelessWidget {
     return Form(
       key: _formKey,
       child: TextFormField(
-        style: const TextStyle(color: Colors.white),
+        style: const TextStyle(
+          color: Colors.white,
+        ),
         decoration: InputDecoration(
           filled: true,
-          fillColor: Colors.white10,
+          fillColor: CustomColor.greyColor,
           labelText: text,
           border: InputBorder.none,
         ),
-       obscureText: hideText,
-          // else if (!value.contains('@gmail.com')) {
-          //   return 'Use the @gmail.com domain.';
-          //
+        obscureText: hideText,
       ),
     );
   }

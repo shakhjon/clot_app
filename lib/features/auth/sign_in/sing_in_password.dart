@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:my_project/core/constants/color.dart';
-import 'package:my_project/core/route/rout_names.dart';
 import 'package:my_project/features/auth/widgets/custom_button.dart';
 import 'package:my_project/features/auth/widgets/log_in_forms.dart';
+import 'package:flutter/material.dart';
+import '../../../core/route/rout_names.dart';
 
 class SignInPassword extends StatelessWidget {
   const SignInPassword({super.key});
@@ -33,8 +33,8 @@ class SignInPassword extends StatelessWidget {
             ),
             CustomButton(
                 onPressed: () {
-              Navigator.pushNamed(context, RouteNames.bottomNavBar);
-            },
+                  Navigator.pushNamed(context, RouteNames.bottomNavBar);
+                },
                 text: "Continue"),
             const SizedBox(
               height: 20,
@@ -47,7 +47,7 @@ class SignInPassword extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, "/resetPage");
+                    Navigator.pushNamed(context, RouteNames.resetPage);
                   },
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.white, // Sets the text color

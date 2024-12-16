@@ -1,3 +1,7 @@
+import 'package:my_project/core/constants/color.dart';
+import 'package:my_project/core/route/rout_names.dart';
+import 'package:my_project/features/home/widgets/custom_clip_rect.dart';
+import 'package:my_project/features/home/widgets/my_circle_avatar.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -8,54 +12,80 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String selectedGender = "Men";
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.black45,
+        backgroundColor: CustomColor.mainColor,
         appBar: AppBar(
-          backgroundColor: Colors.black45,
-          leading: Image.asset("assets/images/circle.png"),
+          backgroundColor: CustomColor.mainColor,
+          leading: GestureDetector(
+            onTap: () {},
+            child: Image.asset("assets/images/circle.png"),
+          ),
           title: Center(
-            child: SizedBox(
-              width: 104,
-              child: Row(
-                children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white10,
-                    ),
-                    onPressed: () {},
-                    child: const Row(
+            child: Container(
+              padding: const EdgeInsets.only(left: 12),
+              width: 100,
+              decoration: BoxDecoration(
+                color: CustomColor.greyColor,
+                borderRadius: BorderRadius.circular(200),
+              ),
+              child: DropdownButton(
+                value: selectedGender,
+                dropdownColor: CustomColor.greyColor,
+                underline: const SizedBox(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    selectedGender = newValue!;
+                  });
+                },
+                items: const [
+                  DropdownMenuItem(
+                    value: "Men",
+                    child: Row(
                       children: [
                         Text(
-                          "Men ",
+                          "Men",
                           style: TextStyle(color: Colors.white),
                         ),
-                        Icon(
-                          Icons.arrow_drop_down,
-                          color: Colors.white,
+                      ],
+                    ),
+                  ),
+                  DropdownMenuItem(
+                    value: "Women",
+                    child: Row(
+                      children: [
+                        Text(
+                          "Women",
+                          style: TextStyle(color: Colors.white),
                         ),
                       ],
                     ),
                   ),
                 ],
+                icon: Image.asset(
+                  "assets/icons/down_arrow.png",
+                ),
               ),
             ),
           ),
           actions: [
             ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                  backgroundColor: Colors.deepPurpleAccent,
-                  minimumSize: const Size(40, 40),
-                ),
-                onPressed: () {},
-                child: Image.asset(
-                  "assets/images/shop.png",
-                  height: 40,
-                  width: 40,
-                )),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.zero,
+                backgroundColor: CustomColor.buttonColor,
+                minimumSize: const Size(50, 50),
+              ),
+              onPressed: () {},
+              child: Image.asset(
+                "assets/images/shop.png",
+                height: 40,
+                width: 40,
+              ),
+            ),
           ],
         ),
         //! Body
@@ -69,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                 height: 50,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    color: Colors.white10,
+                    color: CustomColor.greyColor,
                     borderRadius: BorderRadius.circular(
                       45,
                     ),
@@ -80,14 +110,15 @@ class _HomePageState extends State<HomePage> {
                       filled: true,
                       fillColor: Colors.transparent,
                       hintText: 'Search',
-                      prefixIcon: Icon(Icons.search, color: Colors.white),
+                      prefixIcon:
+                          Icon(Icons.search, color: CustomColor.whiteColor),
                       contentPadding: EdgeInsets.symmetric(
                         vertical: 15.0,
                         horizontal: 20.0,
                       ),
                     ),
                     style: TextStyle(
-                      color: Colors.white,
+                      color: CustomColor.whiteColor,
                     ),
                   ),
                 ),
@@ -103,7 +134,12 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        RouteNames.shopCategories,
+                      );
+                    },
                     child: const Text(
                       "See All",
                       style: TextStyle(
@@ -123,36 +159,49 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     circleAvatar(
-                      "assets/images/shop.png",
+                      "assets/category_images/hoodie.png",
                       "Hoodies",
-                    ),
-                    const SizedBox(
-                      width: 10,
+                      () {
+                        Navigator.pushNamed(
+                            context, RouteNames.productsCategories,
+                            arguments: "Hoodies");
+                      },
                     ),
                     circleAvatar(
-                      "assets/images/shop.png",
-                      "Hoodies",
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    circleAvatar(
-                      "assets/images/shop.png",
-                      "Hoodies",
-                    ),
-                    const SizedBox(
-                      width: 10,
+                      "assets/category_images/shorts.png",
+                      "Shorts",
+                      () {
+                        Navigator.pushNamed(
+                            context, RouteNames.productsCategories,
+                            arguments: "Shorts");
+                      },
                     ),
                     circleAvatar(
-                      "assets/images/shop.png",
-                      "Hoodies",
-                    ),
-                    const SizedBox(
-                      width: 10,
+                      "assets/category_images/boots.png",
+                      "Shoes",
+                      () {
+                        Navigator.pushNamed(
+                            context, RouteNames.productsCategories,
+                            arguments: "Shoes");
+                      },
                     ),
                     circleAvatar(
-                      "assets/images/shop.png",
-                      "Hoodies",
+                      "assets/category_images/bag.png",
+                      "Bag",
+                      () {
+                        Navigator.pushNamed(
+                            context, RouteNames.productsCategories,
+                            arguments: "Bag");
+                      },
+                    ),
+                    circleAvatar(
+                      "assets/category_images/glasses.png",
+                      "Accessories",
+                      () {
+                        Navigator.pushNamed(
+                            context, RouteNames.productsCategories,
+                            arguments: "Accessories");
+                      },
                     ),
                   ],
                 ),
@@ -168,7 +217,11 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(
+                          context, RouteNames.productsCategories,
+                          arguments: 'Top Selling');
+                    },
                     child: const Text(
                       "See All",
                       style: TextStyle(
@@ -182,27 +235,25 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 10,
               ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    clipRRect(
-                      "assets/images/boy.png",
-                      "Men's Harrington Jacket",
+              SizedBox(
+                height: 350,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: const [
+                    CustomClipRRect(
+                      imgURL: "assets/images/boy.png",
+                      text: "Men's Harrington Jacket",
+                      price: 148,
                     ),
-                    const SizedBox(
-                      width: 10,
+                    CustomClipRRect(
+                      imgURL: "assets/images/shoes.png",
+                      text: "Max Cirro Men's Slides",
+                      price: 55.0,
                     ),
-                    clipRRect(
-                      "assets/images/boy.png",
-                      "Men's Harrington Jacket",
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    clipRRect(
-                      "assets/images/boy.png",
-                      "Men's Harrington Jacket",
+                    CustomClipRRect(
+                      imgURL: "assets/images/boy.png",
+                      text: "Men's Harrington Jacket",
+                      price: 50,
                     ),
                   ],
                 ),
@@ -216,12 +267,18 @@ class _HomePageState extends State<HomePage> {
                   const Text(
                     "New in",
                     style: TextStyle(
-                        color: Colors.deepPurpleAccent,
+                        color: CustomColor.buttonColor,
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        RouteNames.productsCategories,
+                        arguments: 'New in',
+                      );
+                    },
                     child: const Text(
                       "See All",
                       style: TextStyle(
@@ -232,27 +289,24 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              SingleChildScrollView(
+              const SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    clipRRect(
-                      "assets/images/boy.png",
-                      "Men's Harrington Jacket",
+                    CustomClipRRect(
+                      imgURL: "assets/images/boy.png",
+                      text: "Men's Harrington Jacket",
+                      price: 50,
                     ),
-                    const SizedBox(
-                      width: 10,
+                    CustomClipRRect(
+                      imgURL: "assets/images/boy.png",
+                      text: "Men's Harrington Jacket",
+                      price: 50,
                     ),
-                    clipRRect(
-                      "assets/images/boy.png",
-                      "Men's Harrington Jacket",
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    clipRRect(
-                      "assets/images/boy.png",
-                      "Men's Harrington Jacket",
+                    CustomClipRRect(
+                      imgURL: "assets/images/boy.png",
+                      text: "Men's Harrington Jacket",
+                      price: 50,
                     ),
                   ],
                 ),
@@ -263,77 +317,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-}
-
-
-//! Widgets
-Widget circleAvatar(String imgURL, String text) {
-  return Column(
-    children: [
-      CircleAvatar(
-        backgroundImage: AssetImage(
-          imgURL,
-        ),
-        radius: 40,
-      ),
-      Text(
-        text,
-        style: const TextStyle(
-          color: Colors.white,
-        ),
-      ),
-    ],
-  );
-}
-
-Widget clipRRect(String imgUrl, String info) {
-  return Column(
-    children: [
-      ClipRRect(
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(8),
-          topRight: Radius.circular(8),
-        ),
-        child: Image.asset(
-          imgUrl,
-          width: 200,
-          fit: BoxFit.cover,
-        ),
-      ),
-      Container(
-        width: 200,
-        height: 70,
-        decoration: const BoxDecoration(
-          color: Colors.white10,
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(
-              8,
-            ),
-            bottomRight: Radius.circular(
-              8,
-            ),
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                info,
-                style: const TextStyle(color: Colors.white),
-              ),
-              const Text(
-                "\$1745",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ],
-  );
 }

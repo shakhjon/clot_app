@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:my_project/core/constants/color.dart';
 import 'package:my_project/core/route/rout_names.dart';
 import 'package:my_project/features/auth/widgets/custom_button.dart';
 import 'package:my_project/features/auth/widgets/log_in_forms.dart';
+import 'package:flutter/material.dart';
+
+import '../widgets/arrow.dart';
 
 class ResetPage extends StatelessWidget {
   const ResetPage({super.key});
@@ -20,17 +22,14 @@ class ResetPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white10,
-              ),
+            Arrow(
               onPressed: () {
-                Navigator.pushNamed(context, '/sign_in_email');
+                Navigator.pushNamed(
+                  context,
+                  RouteNames.signInEmail,
+                );
               },
-              child: const Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-              ),
+              imgURL: "assets/icons/back_arrow.png",
             ),
             const SizedBox(
               height: 20,
@@ -46,14 +45,17 @@ class ResetPage extends StatelessWidget {
               height: 20,
             ),
             LogInForms(
-              text: "Enter Email address", hideText: false,
+              text: "Enter Email address",
+              hideText: false,
             ),
             const SizedBox(
               height: 30,
             ),
-            CustomButton(onPressed: () {
-              Navigator.pushNamed(context, RouteNames.sendEmailPage);
-            }, text: "Continue"),
+            CustomButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, RouteNames.sendEmailPage);
+                },
+                text: "Continue"),
             const SizedBox(
               height: 300,
             )

@@ -1,8 +1,8 @@
-
-import 'package:flutter/material.dart';
+import 'package:my_project/core/constants/color.dart';
 import 'package:my_project/core/route/rout_names.dart';
+import 'package:my_project/features/auth/widgets/continue_widget.dart';
 import 'package:my_project/features/auth/widgets/custom_button.dart';
-
+import 'package:flutter/material.dart';
 import '../widgets/log_in_forms.dart';
 
 class SignInEmail extends StatelessWidget {
@@ -11,7 +11,7 @@ class SignInEmail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff1D182A),
+      backgroundColor: CustomColor.mainColor,
       body: Padding(
         padding: const EdgeInsets.only(right: 20, left: 20),
         child: Column(
@@ -33,11 +33,12 @@ class SignInEmail extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-
-            // Custom button
-            CustomButton(onPressed: () {
-              Navigator.pushNamed(context, RouteNames.signInPassword);
-            }, text: "Continue"),
+            //! Custom button
+            CustomButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, RouteNames.signInPassword);
+                },
+                text: "Continue"),
             const SizedBox(
               height: 20,
             ),
@@ -52,11 +53,10 @@ class SignInEmail extends StatelessWidget {
                     Navigator.pushNamed(context, RouteNames.createAccount);
                   },
                   style: TextButton.styleFrom(
-                    foregroundColor: Colors.white, // Sets the text color
+                    foregroundColor: Colors.white,
                     textStyle: const TextStyle(
-                      fontSize: 16, // Example for font size (optional)
-                      fontWeight:
-                          FontWeight.bold, // Example for bold text (optional)
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   child: const Text(
@@ -68,53 +68,27 @@ class SignInEmail extends StatelessWidget {
             const SizedBox(
               height: 50,
             ),
-            elevatedButton(Icons.apple, "Continue With Apple"),
+            const ContinueWidget(
+              imgURL: "assets/images/apple.png",
+              text: "Continue With Apple",
+            ),
             const SizedBox(
               height: 20,
             ),
-            elevatedButton(Icons.g_mobiledata, "Continue With Google"),
+            const ContinueWidget(
+              imgURL: "assets/images/google.png",
+              text: "Continue With Google",
+            ),
             const SizedBox(
               height: 20,
             ),
-            elevatedButton(Icons.facebook, "Continue With Facebook")
+            const ContinueWidget(
+              imgURL: "assets/images/facebook.png",
+              text: "Continue With Facebook",
+            ),
           ],
         ),
       ),
     );
   }
-}
-
-Widget elevatedButton(IconData icon, String text) {
-  return ElevatedButton(
-    style: ElevatedButton.styleFrom(
-      backgroundColor: Colors.white10,
-      minimumSize: const Size(
-        double.infinity,
-        60,
-      ),
-    ),
-    onPressed: () {},
-    child: Center(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Icon(
-            icon,
-            color: Colors.white,
-            size: 25,
-          ),
-          Text(
-            text,
-            style: const TextStyle(
-              fontSize: 16,
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(
-            width: 16,
-          )
-        ],
-      ),
-    ),
-  );
 }

@@ -1,31 +1,28 @@
+import 'package:my_project/core/constants/color.dart';
 import 'package:flutter/material.dart';
 
-class CustomButton extends StatefulWidget {
+class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
-  String? text;
-   CustomButton({
-     super.key,
-     required this.onPressed,
-     required this.text,
-   });
+  final String? text;
 
-  @override
-  State<CustomButton> createState() => _CustomButtonState();
-}
+  const CustomButton({
+    super.key,
+    required this.onPressed,
+    required this.text,
+  });
 
-class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.deepPurpleAccent,
-        minimumSize: const Size(double.infinity, 50),
+        backgroundColor: CustomColor.buttonColor,
+        minimumSize: const Size(double.infinity, 49),
       ),
-      onPressed: widget.onPressed,
-      child:  Center(
+      onPressed: onPressed,
+      child: Center(
         child: Text(
-          widget.text!,
-          style: TextStyle(color: Colors.white),
+          text!,
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );

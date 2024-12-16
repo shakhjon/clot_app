@@ -1,7 +1,6 @@
 import 'dart:async';
-
+import 'package:my_project/core/constants/color.dart';
 import 'package:flutter/material.dart';
-
 import '../../core/route/rout_names.dart';
 
 class InfoPage extends StatefulWidget {
@@ -14,7 +13,6 @@ class InfoPage extends StatefulWidget {
 class _InfoPageState extends State<InfoPage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, RouteNames.signInEmail);
@@ -24,7 +22,7 @@ class _InfoPageState extends State<InfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff8E6CEF),
+      backgroundColor: CustomColor.mainColor,
       body: Center(
         child: Image.asset("assets/images/info_page.png"),
       ),
