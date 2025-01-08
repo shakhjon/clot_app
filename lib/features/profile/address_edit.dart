@@ -1,8 +1,8 @@
 import 'package:my_project/core/constants/color.dart';
-import 'package:my_project/core/route/rout_names.dart';
 import 'package:my_project/features/auth/widgets/arrow.dart';
 import 'package:my_project/features/profile/widgets/address_edit_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax_plus/iconsax_plus.dart';
 
 class AddressEdit extends StatelessWidget {
   const AddressEdit({super.key});
@@ -13,7 +13,7 @@ class AddressEdit extends StatelessWidget {
       backgroundColor: CustomColor.mainColor,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(top: 40, left: 15, right: 15),
+          padding: const EdgeInsets.only(top: 40, left: 10, right: 45),
           child: Column(
             children: [
               Row(
@@ -21,9 +21,9 @@ class AddressEdit extends StatelessWidget {
                 children: [
                   Arrow(
                     onPressed: () {
-                      Navigator.pushNamed(context, RouteNames.bottomNavBar);
+                      Navigator.pop(context);
                     },
-                    imgURL: 'assets/icons/back_arrow.png',
+                    icon: IconsaxPlusBroken.arrow_left_2,
                   ),
                   const Text(
                     "Address",

@@ -1,6 +1,7 @@
 import 'package:my_project/core/constants/color.dart';
 import 'package:my_project/features/auth/widgets/arrow.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax_plus/iconsax_plus.dart';
 
 import '../../core/route/rout_names.dart';
 
@@ -23,9 +24,9 @@ class PaymentPage extends StatelessWidget {
                   children: [
                     Arrow(
                       onPressed: () {
-                        Navigator.pushNamed(context, RouteNames.bottomNavBar);
+                        Navigator.pop(context);
                       },
-                      imgURL: 'assets/icons/back_arrow.png',
+                      icon: IconsaxPlusBroken.arrow_left_2,
                     ),
                     const Text(
                       "Payment",
@@ -88,7 +89,7 @@ class PaymentPage extends StatelessWidget {
                         onPressed: () {
                           Navigator.pushNamed(context, RouteNames.addCard);
                         },
-                        imgURL: 'assets/icons/right_arrow.png',
+                        icon: IconsaxPlusBroken.arrow_right_3,
                       ),
                     ],
                   ),
@@ -130,7 +131,7 @@ Widget paymentContainer(BuildContext context) {
               onPressed: () {
                 Navigator.pushNamed(context, RouteNames.addCard);
               },
-              imgURL: 'assets/icons/right_arrow.png'),
+            icon: IconsaxPlusBroken.arrow_right_3,),
         ],
       ),
     ),

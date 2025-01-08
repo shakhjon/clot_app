@@ -1,8 +1,8 @@
 import 'package:my_project/core/constants/color.dart';
-import 'package:my_project/core/route/rout_names.dart';
 import 'package:my_project/features/auth/widgets/arrow.dart';
 import 'package:my_project/features/auth/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax_plus/iconsax_plus.dart';
 
 class AddAddress extends StatelessWidget {
   const AddAddress({super.key});
@@ -18,26 +18,21 @@ class AddAddress extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Arrow(
-                    onPressed: () {
-                      Navigator.pushNamed(context, RouteNames.addressEdit);
-                    },
-                    imgURL: "assets/icons/back_arrow.png",
-                  ),
-                  const Text(
-                    "Add Address",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                ],
+              Arrow(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: IconsaxPlusBroken.arrow_left_2,
+              ),
+              const Text(
+                "Add Address",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                width: 30,
               ),
               const SizedBox(
                 height: 20,
@@ -135,7 +130,7 @@ class AddAddress extends StatelessWidget {
               ),
               CustomButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, RouteNames.addressEdit);
+                    Navigator.pop(context);
                   },
                   text: 'Save')
             ],

@@ -3,6 +3,7 @@ import 'package:my_project/core/route/rout_names.dart';
 import 'package:my_project/features/home/widgets/custom_clip_rect.dart';
 import 'package:my_project/features/home/widgets/my_circle_avatar.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax_plus/iconsax_plus.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,16 +32,18 @@ class _HomePageState extends State<HomePage> {
               width: 100,
               decoration: BoxDecoration(
                 color: CustomColor.greyColor,
-                borderRadius: BorderRadius.circular(200),
+                borderRadius: BorderRadius.circular(100),
               ),
               child: DropdownButton(
                 value: selectedGender,
                 dropdownColor: CustomColor.greyColor,
                 underline: const SizedBox(),
                 onChanged: (String? newValue) {
-                  setState(() {
-                    selectedGender = newValue!;
-                  });
+                  setState(
+                    () {
+                      selectedGender = newValue!;
+                    },
+                  );
                 },
                 items: const [
                   DropdownMenuItem(
@@ -77,13 +80,15 @@ class _HomePageState extends State<HomePage> {
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.zero,
                 backgroundColor: CustomColor.buttonColor,
-                minimumSize: const Size(50, 50),
+                minimumSize: const Size(40, 40),
               ),
-              onPressed: () {},
-              child: Image.asset(
-                "assets/images/shop.png",
-                height: 40,
-                width: 40,
+              onPressed: () {
+                // Navigator.pushNamed(context, RouteNames.cartMain);
+                Navigator.pushNamed(context, RouteNames.cartPage);
+              },
+              child: const Icon(
+                IconsaxPlusBroken.bag_2,
+                color: CustomColor.whiteColor,
               ),
             ),
           ],
@@ -97,28 +102,35 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(
                 height: 50,
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: CustomColor.greyColor,
-                    borderRadius: BorderRadius.circular(
-                      45,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, RouteNames.searchPageMain);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: CustomColor.greyColor,
+                      borderRadius: BorderRadius.circular(45),
                     ),
-                  ),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      filled: true,
-                      fillColor: Colors.transparent,
-                      hintText: 'Search',
-                      prefixIcon:
-                          Icon(Icons.search, color: CustomColor.whiteColor),
-                      contentPadding: EdgeInsets.symmetric(
-                        vertical: 15.0,
-                        horizontal: 20.0,
-                      ),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 15.0,
+                      horizontal: 20.0,
                     ),
-                    style: TextStyle(
-                      color: CustomColor.whiteColor,
+                    child: const Row(
+                      children: [
+                        Icon(
+                          IconsaxPlusBroken.search_normal_1,
+                          color: CustomColor.whiteColor,
+                          size: 25,
+                        ),
+                        SizedBox(width: 15.0),
+                        Text(
+                          'Search',
+                          style: TextStyle(
+                            color: CustomColor.whiteColor,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -243,17 +255,17 @@ class _HomePageState extends State<HomePage> {
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 148,
-                    ),
-                    CustomClipRRect(
-                      imgURL: "assets/images/shoes.png",
-                      text: "Max Cirro Men's Slides",
-                      price: 55.0,
+                      price: 1755,
                     ),
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
+                    ),
+                    CustomClipRRect(
+                      imgURL: "assets/images/boy.png",
+                      text: "Men's Harrington Jacket",
+                      price: 1755,
                     ),
                   ],
                 ),
@@ -296,17 +308,17 @@ class _HomePageState extends State<HomePage> {
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                   ],
                 ),

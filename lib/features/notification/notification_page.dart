@@ -1,18 +1,12 @@
 import 'package:my_project/core/constants/color.dart';
 import 'package:my_project/features/notification/widgets/notice.dart';
 import 'package:flutter/material.dart';
-
 import '../../core/route/rout_names.dart';
 
-class NotificationPage extends StatefulWidget {
+class NotificationPage extends StatelessWidget {
+  final bool hasNotification = true;
+
   const NotificationPage({super.key});
-
-  @override
-  State<NotificationPage> createState() => _NotificationPageState();
-}
-
-class _NotificationPageState extends State<NotificationPage> {
-  bool hasNotification = true;
 
   @override
   Widget build(BuildContext context) {
@@ -34,16 +28,13 @@ class _NotificationPageState extends State<NotificationPage> {
                 child: Column(
                   children: [
                     notice(
-                      "Gilbert, you placed and order check your",
-                      "order history for full details",
+                      "Gilbert, you placed and order check your order history for full details",
                     ),
                     notice(
-                      "Gilbert, you placed and order check your",
-                      "order history for full details",
+                      "Gilbert, you placed and order check your order history for full details",
                     ),
                     notice(
-                      "Gilbert, you placed and order check your",
-                      "order history for full details",
+                      "Gilbert, you placed and order check your order history for full details",
                     ),
                   ],
                 ),

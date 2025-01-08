@@ -2,6 +2,7 @@ import 'package:my_project/core/constants/color.dart';
 import 'package:my_project/features/auth/widgets/custom_button.dart';
 import 'package:my_project/features/auth/widgets/log_in_forms.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax_plus/iconsax_plus.dart';
 import '../../../core/route/rout_names.dart';
 import '../widgets/arrow.dart';
 
@@ -30,7 +31,7 @@ class CreateAccount extends StatelessWidget {
                     RouteNames.signInEmail,
                   );
                 },
-                imgURL: "assets/icons/back_arrow.png",
+                icon: IconsaxPlusBroken.arrow_left_2,
               ),
               const SizedBox(
                 height: 20,

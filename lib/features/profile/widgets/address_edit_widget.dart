@@ -10,7 +10,7 @@ class AddressEditWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 15),
       child: Container(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(5),
         width: double.infinity,
         height: 80,
         decoration: BoxDecoration(

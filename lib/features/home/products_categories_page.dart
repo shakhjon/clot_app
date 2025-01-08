@@ -1,6 +1,7 @@
 import 'package:my_project/core/constants/color.dart';
 import 'package:my_project/features/home/widgets/custom_clip_rect.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax_plus/iconsax_plus.dart';
 import '../auth/widgets/arrow.dart';
 
 class ProductsCategories extends StatelessWidget {
@@ -23,7 +24,7 @@ class ProductsCategories extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                imgURL: "assets/icons/back_arrow.png",
+                icon: IconsaxPlusBroken.arrow_left_2,
               ),
               const SizedBox(
                 height: 20,
@@ -49,67 +50,67 @@ class ProductsCategories extends StatelessWidget {
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                     CustomClipRRect(
                       imgURL: "assets/images/boy.png",
                       text: "Men's Harrington Jacket",
-                      price: 50,
+                      price: 1755,
                     ),
                   ],
                 ),

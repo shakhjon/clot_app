@@ -1,10 +1,9 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'package:my_project/core/constants/color.dart';
 import 'package:my_project/features/notification/notification_page.dart';
 import 'package:my_project/features/order/order_page.dart';
 import 'package:my_project/features/profile/profile_page.dart';
 import 'package:flutter/material.dart';
+
 import 'home/home_page.dart';
 
 class BottomNavBar extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax_plus/iconsax_plus.dart';
 import '../../core/constants/color.dart';
-import '../../core/route/rout_names.dart';
 import '../auth/widgets/arrow.dart';
 import '../auth/widgets/custom_button.dart';
 
@@ -23,9 +23,9 @@ class AddCardPage extends StatelessWidget {
                 children: [
                   Arrow(
                     onPressed: () {
-                      Navigator.pushNamed(context, RouteNames.paymentPage);
+                      Navigator.pop(context);
                     },
-                    imgURL: "assets/icons/back_arrow.png",
+                    icon: IconsaxPlusBroken.arrow_left_2,
                   ),
                   const Text(
                     "Add Card",
@@ -135,7 +135,7 @@ class AddCardPage extends StatelessWidget {
               ),
               CustomButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, RouteNames.paymentPage);
+                    Navigator.pop(context);
                   },
                   text: 'Save')
             ],
